@@ -1,0 +1,99 @@
+//----------------------------------TIC TACK GAME IN  C LANGUAGE-----------------------------------//
+#include <stdio.h>
+#include <stdlib.h>
+
+char board_array[]={'0','1','2','3','4','5','6','7','8','9'};
+
+void Board(){
+    system("cls");
+    printf("\n");
+    printf("<=== TIC TAC TOE ===>\n\n");
+    printf("     |     |     \n");
+    printf("  %c  |  %c  |  %c  \n",board_array[1],board_array[2],board_array[3]);
+    printf("_____|_____|_____\n");
+    printf("     |     |     \n");
+    printf("  %c  |  %c  |  %c  \n",board_array[4],board_array[5],board_array[6]);
+    printf("_____|_____|_____\n");
+    printf("     |     |     \n");
+    printf("  %c  |  %c  |  %c  \n",board_array[7],board_array[8],board_array[9]);
+    printf("     |     |     \n");
+    printf("\n");
+}
+
+int check(){
+
+    if(board_array[1]==board_array[2] && board_array[2]==board_array[3]){
+        return 1;
+    }
+    if(board_array[1]==board_array[4] && board_array[4]==board_array[7]){
+        return 1;
+    }
+    if(board_array[7]==board_array[8] && board_array[8]==board_array[9]){
+        return 1;
+    }
+    if(board_array[3]==board_array[6] && board_array[6]==board_array[9]){
+        return 1;
+    }
+    if(board_array[1]==board_array[5] && board_array[5]==board_array[9]){
+        return 1;
+    }
+    if(board_array[3]==board_array[5] && board_array[5]==board_array[7]){
+        return 1;
+    }
+    if(board_array[2]==board_array[5] && board_array[5]==board_array[8]){
+        return 1;
+    }
+    if(board_array[4]==board_array[5] && board_array[5]==board_array[6]){
+        return 1;
+    }
+
+    int count=0;
+    for (int i = 1; i <=9; i++)
+    {
+        if(board_array[i]=='X' || board_array[i]=='O'){
+            count++;
+        }
+    }
+
+    if(count==9){
+        return 0;
+    }
+}
+
+void Amain(){
+    int player=1,input,status=-1;
+    Board();
+
+
+    while (status==-1)
+    {
+        player=(player%2==0) ? 2 : 1;
+        char p=(player==1) ? 'X' :'O';
+        printf("Please enter Number For Player %d (From 1 to 9):",player);
+        scanf("%d",&input);
+    if(input<1 || input>9){
+        printf("invalid input");
+    }
+
+    board_array[input]=p;
+    Board();
+
+    int result=check();
+
+    if(result==1){
+        printf("Player %d is the Winner",player);
+        return;
+    }else if(result==0){
+        printf("The match is draw.");
+        return;
+    }
+
+    player++;
+    }
+}
+
+CODE EXPLAINATION:
+
+This C program brings Tic Tac Toe to life with a 1D array mimicking a 2D board. The Board function keeps the console clear and shows the board's current state. The check function keeps an eye out for a winner by checking all winning lines and counts filled spots to detect a draw. In Amain, the game alternates between Player 1 ('X') and Player 2 ('O'), asking for their moves, updating the board, and calling check to see if there's a winner or if it’s a draw. Invalid moves (numbers outside 1-9) get flagged with an error. The game keeps going until someone wins or all spots are filled, leading to a draw. Fun, interactive, and clear-cut!
+
+-------------------------------------------------------------------------------------------------------------

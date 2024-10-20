@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1703567203 source:c:\users\user\desktop\fop lab assignments\fop lab project [2023]\tictactoegame\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<time.h>
+
