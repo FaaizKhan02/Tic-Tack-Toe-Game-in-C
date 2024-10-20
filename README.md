@@ -1,0 +1,1 @@
+The uploaded files contain two diffrent approches to create tic tac toe game,both two codes has many similarities and diffrences ,Amoung these two one is inhances version of the game which gives compitation to the games present in market but these are only backend code games. 
